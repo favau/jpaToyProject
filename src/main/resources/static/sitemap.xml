@@ -1,0 +1,25 @@
+<!-- 
+sitemap.xml : 웹사이트의 사이트맵(페이지 구조)을 검색 엔진에 제공하는 파일
+사이트를 더 잘 크롤링하고 인덱싱할 수 있도록 돕는 역할을 하여 검색 엔진 최적화(SEO)에 도움이 됨
+
+<loc> : 페이지 URL (필수)
+<lastmod> : 마지막 수정일 (검색 엔진 참고용)
+<changefreq> : 바뀌는 빈도 (always, hourly, daily, weekly, monthly, yearly, never)
+<priority> : 페이지 중요도 (0.0 ~ 1.0)
+ -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <url>
+      <loc>https://your-domain.com/</loc>
+      <lastmod>2025-03-11</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+   </url>
+   <url>
+      <loc>https://your-domain.com/about</loc>
+      <lastmod>2025-03-10</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+</urlset>
