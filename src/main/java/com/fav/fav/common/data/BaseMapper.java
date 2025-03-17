@@ -1,16 +1,12 @@
 package com.fav.fav.common.data;
 
 import org.mapstruct.AfterMapping;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring") // Spring 통합을 위한 설정
-public interface BaseMapper {
-
+public interface BaseMapper<D extends BaseDto, E extends BaseEntity> {
     // 공통 필드를 후처리 메서드에서 설정
     @AfterMapping
-    default void setCommonFields(@MappingTarget BaseEntity target, BaseDto source) {
+    default void setCommonFields(@MappingTarget E target, D source) {
         if (target != null && source != null) {
             // 공통 필드 매핑
             target.setStatus(source.getStatus());
@@ -21,13 +17,9 @@ public interface BaseMapper {
         }
     }
 
-    // BaseEntity → BaseDto 변환
-    // count, page, size는 매핑하지 않도록 설정
-    @Mapping(target = "count", ignore = true)
-    @Mapping(target = "page", ignore = true)
-    @Mapping(target = "size", ignore = true)
-    BaseDto entityToDto(BaseEntity entity);
-
     // BaseDto → BaseEntity 변환
-    BaseEntity dtoToEntity(BaseDto dto);
+    E dtoToEntity(D dto);
+
+    // BaseEntity → BaseDto 변환
+    D entityToDto(E entity);
 }
