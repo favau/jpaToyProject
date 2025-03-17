@@ -1,6 +1,6 @@
 package com.fav.fav.project1.structureTest.data;
 
-import com.fav.fav.common.BaseDto;
+import com.fav.fav.common.data.BaseDto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

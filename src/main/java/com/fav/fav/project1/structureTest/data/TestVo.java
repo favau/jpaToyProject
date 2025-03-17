@@ -7,7 +7,7 @@ import lombok.Value;
 @Builder	// Builder를 사용할 수 있게 해줌
 public class TestVo{
 
-    String id;
+    Long id;
     String name;
     String email;
 }

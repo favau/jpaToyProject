@@ -1,4 +1,4 @@
-package com.fav.fav.common;
+package com.fav.fav.common.data;
 
 import java.util.List;
 

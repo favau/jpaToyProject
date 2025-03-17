@@ -1,4 +1,4 @@
-package com.fav.fav.common;
+package com.fav.fav.common.data;
 
 import java.util.List;
 
@@ -10,4 +10,8 @@ public interface BaseService<RES, REQ> {
     int update(REQ requestDto) throws Exception;
 
     int delete(REQ requestDto) throws Exception;
+
+    List<RES> readPage(REQ requestDto) throws Exception;
+
+    long count(REQ requestDto) throws Exception;
 }
