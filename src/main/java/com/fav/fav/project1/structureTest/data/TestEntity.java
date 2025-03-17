@@ -19,8 +19,9 @@ import lombok.Setter;
 public class TestEntity extends BaseEntity {
 
     @Id // Primary Key임을 나타냄
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Primary Key의 값을 자동으로 생성 GenerationType.IDENTITY는 DB의 자동 증가
-                                                        // 번호를 사용
+    // Primary Key의 값을 자동으로 생성
+    // GenerationType.IDENTITY는 DB의 자동 증가 번호를 사용
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;

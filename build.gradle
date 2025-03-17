@@ -41,29 +41,32 @@ dependencies {
 	// Lombok : 자바 소스 코드를 작성할 때, Getter, Setter, toString, equals, hashCode 등의 메소드를 어노테이션으로 자동 생성해주는 라이브러리 ...2025.03.12 기준 최신 버전 1.18.36
  	compileOnly 'org.projectlombok:lombok:1.18.36'
     annotationProcessor 'org.projectlombok:lombok:1.18.36'
+
 	// MapStruct : DTO <-> Entity 변환 라이브러리 ...2025.03.12 기준 최신 버전 1.6.3
 	implementation 'org.mapstruct:mapstruct:1.6.3'
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+
 	// JPA : 객체와 관계형 데이터베이스 간의 매핑을 정의하고, 기본적인 ORM 기능을 제공하는 api ...2025.03.12 기준 최신 버전 3.2
     implementation 'jakarta.persistence:jakarta.persistence-api:3.2.0'
+
 	// Hibernate : Hibernate는 JPA 명세에 맞춰 객체-관계 매핑을 구현한 프레임워크로, JPA를 사용하는 애플리케이션에서 실제로 데이터를 처리하는 ORM 기능을 제공하는 프레임워크 ...2025.03.12 기준 최신 버전 7.0.0.Beta4
     implementation 'org.hibernate:hibernate-core:7.0.0.Beta4'
+
+	// javax validation : 자바 빈의 유효성 검사를 위한 API ...2025.03.12 기준 최신 버전 2.0.1.Final
+	implementation 'javax.validation:validation-api:2.0.1.Final'
+
 	// MyBatis Spring Boot Starter : MyBatis를 사용하기 위한 스프링 부트 스타터 ...2025.03.12 기준 최신 버전 3.0.4
     // implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
-
 	// Spring Boot Starter Data JPA : Spring Data JPA를 사용하기 위한 스프링 부트 스타터 ...2025.03.12 기준 최신 버전 3.5.0-SNAPSHOT
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    // H2 데이터베이스 (JPA 사용 시 필요)
-    implementation 'com.h2database:h2' // JPA와 함께 사용할 데이터베이스
-    // 또는 다른 데이터베이스를 사용하고 있다면, 그에 맞는 의존성을 추가
-    // 예: PostgreSQL
-    // implementation 'org.postgresql:postgresql'
-    // Spring Boot Starter Web (웹 애플리케이션이라면 필요)
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    // Spring Boot Starter JDBC (JPA 외에 JDBC가 필요한 경우)
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-    // Spring Boot Starter Test (테스트 의존성)
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// postgresql : PostgreSQL JDBC 드라이버 의존성 추가
+	implementation 'org.postgresql:postgresql'
+	// spring-boot-starter-web : Spring Boot Starter Web (웹 애플리케이션을 사용할 경우 필요)
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// 테스트 의존성 (선택사항)
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 }
 
 sourceSets {

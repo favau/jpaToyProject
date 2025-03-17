@@ -26,10 +26,11 @@ import lombok.extern.slf4j.Slf4j;
 public class TestService implements BaseService<TestResponseDto, TestRequestDto> {
 
     private final TestRepository testRepository;
+    private final TestMapper testMapper; // Spring이 주입
 
     @Override
     public int create(TestRequestDto requestDto) throws Exception {
-        TestEntity entity = TestMapper.INSTANCE.requestDtoToEntity(requestDto);
+        TestEntity entity = testMapper.requestToEntity(requestDto);
         testRepository.save(entity);
         return 1;
     }
@@ -38,13 +39,13 @@ public class TestService implements BaseService<TestResponseDto, TestRequestDto>
     public List<TestResponseDto> read(TestRequestDto requestDto) throws Exception {
         Optional<TestEntity> result = testRepository.findById(requestDto.getTestVo().getId());
         return result
-                .map(entity -> List.of(TestMapper.INSTANCE.entityToResponseDto(entity)))
+                .map(entity -> List.of(testMapper.entityToResponse(entity)))
                 .orElse(List.of());
     }
 
     @Override
     public int update(TestRequestDto requestDto) throws Exception {
-        TestEntity entity = TestMapper.INSTANCE.requestDtoToEntity(requestDto);
+        TestEntity entity = testMapper.requestToEntity(requestDto);
         if (!testRepository.existsById(entity.getId())) {
             throw new RuntimeException("해당 ID 없음");
         }
@@ -71,7 +72,7 @@ public class TestService implements BaseService<TestResponseDto, TestRequestDto>
         Page<TestEntity> result = testRepository.findAll(pageable);
 
         return result.getContent().stream()
-                .map(TestMapper.INSTANCE::entityToResponseDto)
+                .map(testMapper::entityToResponse)
                 .collect(Collectors.toList());
     }
 

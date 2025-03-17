@@ -1,5 +1,7 @@
 package com.fav.fav.project1.structureTest.data;
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -9,6 +11,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor // 기본 생성자(매개변수가 없는 생성자)를 자동으로 생성
 public class TestModel {
 
+	@NotEmpty(message = "비밀번호는 필수 입력 항목입니다.")
     private String password;
 
     // 비밀번호 유효성 검사 비즈니스 로직

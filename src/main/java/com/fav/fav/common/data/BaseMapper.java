@@ -4,6 +4,7 @@ import org.mapstruct.AfterMapping;
 import org.mapstruct.MappingTarget;
 
 public interface BaseMapper<D extends BaseDto, E extends BaseEntity> {
+
     // 공통 필드를 후처리 메서드에서 설정
     @AfterMapping
     default void setCommonFields(@MappingTarget E target, D source) {
