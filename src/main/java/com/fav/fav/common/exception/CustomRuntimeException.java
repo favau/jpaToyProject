@@ -1,27 +1,24 @@
 package com.fav.fav.common.exception;
 
+import lombok.Getter;
+
+import org.springframework.http.HttpStatus;
+
+import lombok.AllArgsConstructor;
+
+@Getter
+@AllArgsConstructor // 모든 필드를 받는 생성자
 public class CustomRuntimeException extends RuntimeException {
 
-    private int errorCode; // 추가적인 필드를 가질 수 있음
+    private final int errorCode; // 추가적인 필드
+    private final String message; // 오류 메시지
+    private final HttpStatus status; // HTTP 상태
 
-    // 기본 생성자
-    public CustomRuntimeException() {
-        super("커스텀 런타임 예외 발생");
-    }
-
-    // 메시지 전달하는 생성자
-    public CustomRuntimeException(String message) {
-        super(message);
-    }
-
-    // 메시지와 에러코드 전달하는 생성자
-    public CustomRuntimeException(String message, int errorCode) {
-        super(message);
-        this.errorCode = errorCode;
-    }
-
-    // 에러코드 getter
-    public int getErrorCode() {
-        return errorCode;
+    // BizErrorCode를 통해 오류 코드와 메시지를 처리
+    public CustomRuntimeException(BizErrorCode bizErrorCode) {
+        super(bizErrorCode.getMessage());
+        this.errorCode = bizErrorCode.getError();
+        this.message = bizErrorCode.getMessage();
+        this.status = bizErrorCode.getStatus();
     }
 }
