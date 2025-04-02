@@ -1,29 +1,20 @@
 package com.fav.fav.common.data;
 
-import java.time.ZonedDateTime;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @Data // Getter, Setter, toString, equals, hashCode를 자동으로 생성
 @SuperBuilder(toBuilder = true)
-@NoArgsConstructor
 public class BaseDto {
+
+    public BaseDto(){
+		page = 0;								// 페이지가 0 이면 전체 출력
+		recordSize = 10;
+		pageSize = 10;
+	};
 
     // 페이징
     private Integer page; // 0부터 시작
-    private Integer size;
-    private Long count;
-
-    // 공통 컬럼
-    private String status;
-    private String createBy;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-    private ZonedDateTime createAt;
-    private String updateBy;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-    private ZonedDateTime updateAt;
+    private Integer recordSize;
+    private int pageSize; 						// 화면 하단에 출력할 페이지 사이즈
 }

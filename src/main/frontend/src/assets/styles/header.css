@@ -1,0 +1,21 @@
+@media only screen and (max-width: 1500px) {
+    header .quick_link {
+        left: 122px;
+        top: 45px;
+    }
+}
+@media only screen and (max-width: 1650px) {
+    header .quick_link {
+        left: 130px;
+    }
+}
+header .quick_link {
+    position: absolute;
+    left: 150px;
+    top: 36px;
+    display: flex
+;
+    border-radius: 50px;
+    background: #717171;
+    z-index: 30;
+}

@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class SseController {
     private final SseEmitterStore sseEmitterStore;
-    private final String moduleName = "Server-Sent Events ";
+    // private final String moduleName = "Server-Sent Events ";
 
     @GetMapping("/subscribe/{id}")
     public SseEmitter subscribe(@PathVariable String id) {
