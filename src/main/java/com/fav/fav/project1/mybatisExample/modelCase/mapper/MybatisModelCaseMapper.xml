@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace = "com.fav.fav.project1.mybatisExample.modelCase.mapper.MybatisModelCaseMapper">
+		<!-- ResultMap 정의 -->
+		<resultMap id = "mybatisModelCaseMap" type = "mybatisModelCaseEntity">
+			<result column = "id" property = "id" />
+			<result column = "name" property = "name" />
+			<result column = "item_price" property = "itemPrice" />
+			<result column = "item_count" property = "itemCount" />
+			<result column = "shipping_fee" property = "shippingFee" />
+			<result column = "discount" property = "discount" />
+			<result column = "total_price" property = "totalPrice" />
+		</resultMap>
+
+
+		<select id = "read" resultMap = "mybatisModelCaseMap">
+			SELECT
+			*
+			FROM model_case
+			<trim prefix = "(" suffix = ")" suffixOverrides = ",">
+				<if test = "id != null and id != ''">
+					WHERE id = #{id}
+				</if>
+			</trim>
+		</select>
+	
+	</mapper>

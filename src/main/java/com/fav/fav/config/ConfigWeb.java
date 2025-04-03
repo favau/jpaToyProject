@@ -16,8 +16,9 @@ public class ConfigWeb implements WebMvcConfigurer {
 	@Override
 	public void addCorsMappings(@NonNull CorsRegistry registry) {
 		registry.addMapping("/**")
-				.allowedOrigins("http://192.168.0.1:5432:3000",
-						"http://1.231.141.108:5432:3000",
+				.allowedOrigins(
+						"http://192.168.0.1:3000",
+						"http://1.231.141.108:3000",
 						"http://175.123.78.140:3000",
 						"http://localhost:3000")
 				.allowedMethods("GET", "POST", "PUT", "DELETE")

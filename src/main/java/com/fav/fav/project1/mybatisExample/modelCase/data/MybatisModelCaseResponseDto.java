@@ -1,4 +1,4 @@
-package com.fav.fav.project1.mybatisExample.data;
+package com.fav.fav.project1.mybatisExample.modelCase.data;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fav.fav.common.data.BaseDto;
@@ -13,8 +13,13 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor // 기본 생성자(매개변수가 없는 생성자)를 자동으로 생성
 @EqualsAndHashCode(callSuper = false) // 부모 클래스의 equals, hashCode 호출 안 함
 @JsonInclude(JsonInclude.Include.NON_NULL) // null인 필드는 제외하고 JSON으로 변환
-public class MybatisExampleResponseDto extends BaseDto {
+public class MybatisModelCaseResponseDto extends BaseDto {
 
-    private MybatisExampleModel exampleModel;
-    private MybatisExampleVo exampleVo;
+    private Long id;
+    private String name;
+    private int itemPrice;
+    private int itemCount;
+    private int shippingFee;
+    private int discount;
+    private int totalPrice; // 비즈니스 로직을 통해 계산된 총 가격
 }

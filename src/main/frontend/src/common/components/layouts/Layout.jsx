@@ -1,20 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "./Footer";
 import Header from "./Header";
 
-/**
- * Layout Component
- *  
- * @returns {JSX.Element} Layout 컴포넌트 JSX
- */
 const Layout = () => {
+	const location = useLocation();
+	const isHome = location.pathname === "/"; // 홈 경로 확인
+
 	return (
 		<>
-			<Header />
+			{!isHome && <Header />}
 			<main>
 				<Outlet />
 			</main>
-			<Footer />
+			{!isHome && <Footer />}
 		</>
 	);
 }

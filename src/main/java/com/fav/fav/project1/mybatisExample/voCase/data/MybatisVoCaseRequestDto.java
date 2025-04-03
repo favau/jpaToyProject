@@ -1,4 +1,4 @@
-package com.fav.fav.project1.mybatisExample.data;
+package com.fav.fav.project1.mybatisExample.voCase.data;
 
 import com.fav.fav.common.data.BaseDto;
 
@@ -11,8 +11,7 @@ import lombok.experimental.SuperBuilder;
 @EqualsAndHashCode(callSuper = false) // 상속받은 클래스의 필드를 제외하고 equals, hashCode를 생성
 @SuperBuilder(toBuilder = true) // Builder, toBuilder를 사용할 수 있게 해줌
 @NoArgsConstructor // 기본 생성자(매개변수가 없는 생성자)를 자동으로 생성
-public class MybatisExampleRequestDto extends BaseDto {
+public class MybatisVoCaseRequestDto extends BaseDto {
 
-    private MybatisExampleModel testModel;
-    private MybatisExampleVo testVo;
+    private Long id;
 }

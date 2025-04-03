@@ -1,14 +1,10 @@
-package com.fav.fav.project1.mybatisExample.controller;
+package com.fav.fav.project1.mybatisExample.voCase.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.fav.fav.project1.mybatisExample.data.MybatisExampleRequestDto;
-import com.fav.fav.project1.mybatisExample.data.MybatisExampleResponseDto;
-import com.fav.fav.project1.mybatisExample.service.MybatisExampleService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,27 +13,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.fav.fav.common.ProcessResult;
 import com.fav.fav.common.exception.CustomRuntimeException;
+import com.fav.fav.project1.mybatisExample.voCase.data.MybatisVoCaseRequestDto;
+import com.fav.fav.project1.mybatisExample.voCase.data.MybatisVoCaseResponseDto;
+import com.fav.fav.project1.mybatisExample.voCase.service.MybatisVoCaseService;
 
 @Slf4j
 @RestController
-@RequestMapping("/project1/mybatisExample")
+@RequestMapping("/project1/mybatisExample/mybatisVoCase")
 @RequiredArgsConstructor
-public class MybatisExampleController {
-    private final String moduleName = "mybatisExample";
-    ProcessResult<MybatisExampleResponseDto> processResult = null;
+public class MybatisVoCaseController {
+    private final String moduleName = "project1/mybatisExample/mybatisVoCase";
+    ProcessResult<MybatisVoCaseResponseDto> processResult = null;
 
     @Autowired // 의존성 주입(Dependency Injection)을 자동으로 수행하는 어노테이션
-    private final MybatisExampleService testService;
+    private final MybatisVoCaseService testService;
 
-    @GetMapping("read")
-    public ProcessResult<MybatisExampleResponseDto> read(MybatisExampleRequestDto requestDto) {
+    @GetMapping("/read")
+    public ProcessResult<MybatisVoCaseResponseDto> read(MybatisVoCaseRequestDto requestDto) {
         String moduleFix = moduleName + "생성";
-        ProcessResult<MybatisExampleResponseDto> processResult = null;
+        ProcessResult<MybatisVoCaseResponseDto> processResult = null;
 
         try {
-            List<MybatisExampleResponseDto> responseDto = testService.read(requestDto);
+            List<MybatisVoCaseResponseDto> responseDto = testService.read(requestDto);
 
-            processResult = ProcessResult.<MybatisExampleResponseDto>builder()
+            processResult = ProcessResult.<MybatisVoCaseResponseDto>builder()
                     .isResult(true)
                     .resultCode(0)
                     .resultMessage(String.format("%s > 성공", moduleFix))
@@ -47,7 +46,7 @@ public class MybatisExampleController {
         } catch (Exception e) {
             log.error("{}", e.getMessage(), e); // 일반적인 예외 처리 로그 추가
             String message = CustomRuntimeException.getErrorMessage(e);
-            processResult = ProcessResult.<MybatisExampleResponseDto>builder()
+            processResult = ProcessResult.<MybatisVoCaseResponseDto>builder()
                     .isResult(false)
                     .resultCode(-1)
                     .resultMessage(String.format("%s > 실패 - 원인[%s]", moduleFix, message))

@@ -36,3 +36,7 @@ out/
 ### VS Code ###
 .vscode/
 src/main/resources/application.properties
+
+### react ###
+node_modules/
+
