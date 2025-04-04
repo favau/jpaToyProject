@@ -46,3 +46,58 @@ td {
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: none;
 }
+
+/* 닫기 버튼 이미지 */
+.btn_close {
+    background: url(../images/btn_close.svg) no-repeat center top;
+    width: 40px;
+    height: 40px;
+    display: block;
+    /* 추가 */
+    text-indent: -9999px;
+    /* 텍스트 숨기기 */
+}
+
+
+/* 히든 설정 */
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* 메뉴 박스 반응형 border 설정 */
+.home-menu-box-title-border {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.home-menu-box-content-border {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* lg 이상일 때는 오른쪽 보더로 전환 및 제거 */
+@media (min-width: 992px) {
+    .home-menu-box-title-border {
+        border-bottom: none;
+    }
+    .home-menu-box-content-border {
+        border-bottom: none;
+        border-right: 1px solid #dee2e6;
+    }
+}
+
+/* a 태그 공통 디자인 */
+a {
+    text-decoration: none;  /* 밑줄 제거 */
+    color: inherit; /* 부모 요소의 색상 상속 */
+    cursor: pointer;    /* 포인터 커서 */
+  }
+  

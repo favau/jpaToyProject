@@ -1,8 +1,8 @@
-import logo from "../../../assets/images/fav_logo.png";
+import logo from "../../assets/images/fav_logo.png";
 import { Image } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const HomeHeader = () => {
     const navigate = useNavigate();
 
     const handleClick = (e) => {
@@ -12,7 +12,7 @@ const Header = () => {
 
     return (
         <header>
-            <div className='d-flex justify-content-start align-items-center p-1 w-100 gap-4' style={{ backgroundColor: 'gray' }}>
+            <div className='d-flex justify-content-start align-items-center p-1 w-100 gap-4' style={{ backgroundColor: 'white' }}>
                 <div className='d-flex p-2 h-100 align-items-center gap-4 w-auto'>
                     <Image
                         src={logo}
@@ -21,31 +21,31 @@ const Header = () => {
                         onClick={handleClick}
                         className='bg-black'
                         style={{
-                            width: "5rem",
-                            height: "5rem",
+                            width: "3rem",
+                            height: "3rem",
                             objectFit: "contain",
                             cursor: "pointer"
                         }}
                     />
-                    <h1 className="fw-bold mb-0" style={{ color: "#fff" }}>
+                    <h2 className="fw-bold mb-0" style={{ color: "#fff" }}>
                         <a
                             href="#"
                             onClick={handleClick}
                             style={{
-                                color: "inherit",
+                                color: "black",
                                 textDecoration: "none"
                             }}
                         >
                             fav 웹 사이트
                         </a>
-                    </h1>
+                    </h2>
                 </div>
                 <div>
-                    버튼
+                    {/* 헤더 버튼 구역 */}
                 </div>
             </div>
         </header>
     );
 }
 
-export default Header;
+export default HomeHeader;

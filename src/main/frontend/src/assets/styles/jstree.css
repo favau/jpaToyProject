@@ -1,0 +1,31 @@
+/* 검색어 강조 설정  */
+.jstree-search {
+  /* background-color: rgb(221, 54, 54); */
+  font-style: italic;
+  /* jstree search plugin default value */
+  color: #8b0000 !important;
+  /* jstree search plugin default value */
+  font-weight: bold;
+  /* jstree search plugin default value */
+}
+
+/* 호버 bg설정 */
+.jstree-search:hover {
+  background-color: red;
+}
+
+/* line 이미지 파일 설정 */
+.jstree-default .jstree-node,
+.jstree-default .jstree-icon {
+  background-image: url("../images/32px.png") !important;
+}
+
+/* 상위 line repeat 제거 */
+.jstree-default .jstree-last {
+  background-image: none !important;
+}
+
+/* 기본 테마 아이콘 제거 */
+.jstree-default .jstree-themeicon {
+  background-image: none !important;
+}

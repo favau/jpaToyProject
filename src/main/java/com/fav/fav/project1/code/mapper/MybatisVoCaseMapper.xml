@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace = "com.fav.fav.project1.mybatisExample.voCase.mapper.MybatisVoCaseMapper">
+		<!-- ResultMap 정의 -->
+		<resultMap id = "mybatisVoCaseMap" type = "MybatisVoCaseEntity">
+			<result column = "id" property = "id" />
+			<result column = "zip_code" property = "zipCode" />
+			<result column = "address1" property = "address1" />
+			<result column = "address2" property = "address2" />
+
+		</resultMap>
+
+		<select id = "read" resultMap = "mybatisVoCaseMap">
+			SELECT
+			*
+			FROM vo_case
+			<trim prefix = "(" suffix = ")" suffixOverrides = ",">
+				<if test = "id != null and id != ''">
+					WHERE id = #{id}
+				</if>
+			</trim>
+		</select>
+
+	</mapper>

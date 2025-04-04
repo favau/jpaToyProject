@@ -9,7 +9,7 @@ const Layout = () => {
 	return (
 		<>
 			{!isHome && <Header />}
-			<main>
+			<main style={{backgroundColor:'#F1F3F7'}}>
 				<Outlet />
 			</main>
 			{!isHome && <Footer />}

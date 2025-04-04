@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-const Footer = () => {
+const HomeFooter = () => {
 	return (
 		<footer className="bg-white text-white py-4 mt-5 border-top border-1 border-dark">
 			<div className="container">
@@ -44,4 +44,4 @@ const Footer = () => {
 	);
 }
 
-export default Footer;
+export default HomeFooter;
