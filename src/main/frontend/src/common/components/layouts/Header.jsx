@@ -36,7 +36,7 @@ const Header = () => {
                                 textDecoration: "none"
                             }}
                         >
-                            fav 웹 사이트
+                            jpaToyProject 웹 사이트
                         </a>
                     </h1>
                 </div>
